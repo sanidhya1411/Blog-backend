@@ -13,7 +13,15 @@ const { notFound, errorHandler } = require('./middleware/errorMiddleware')
 const app = express()
 app.use(express.json({ extended: true }))
 app.use(express.urlencoded({ extended: true }))
-app.use(cors({ credentials: true, origin: "https://blog-app-liard-zeta.vercel.app" }))
+// app.use(cors({ credentials: true, origin: "https://blog-app-liard-zeta.vercel.app" }))
+app.use(
+    cors({
+        origin: '*',
+        credentials:true,
+        optionSuccessStatus:200,
+
+    })
+)
 app.get("/",(req,res)=>{
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-MEthods', 'POST,GET,OPTIONS,PUT,DELETE');
