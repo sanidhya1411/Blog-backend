@@ -16,14 +16,14 @@ app.use(express.urlencoded({ extended: true }))
 // app.use(cors({ credentials: true, origin: "https://blog-app-liard-zeta.vercel.app" }))
 app.use(
     cors({
-        origin: '*',
+        origin: 'https://blog-app-liard-zeta.vercel.app',
         credentials:true,
         optionSuccessStatus:200,
 
     })
 )
 app.get("/",(req,res)=>{
-    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Origin', 'https://blog-app-liard-zeta.vercel.app');
     res.header('Access-Control-Allow-MEthods', 'POST,GET,OPTIONS,PUT,DELETE');
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');       ;
     res.send({ "msg": "This has CORS enabled 🎈" })
