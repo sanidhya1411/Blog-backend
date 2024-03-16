@@ -13,9 +13,9 @@ const { notFound, errorHandler } = require('./middleware/errorMiddleware')
 const app = express()
 app.use(express.json({ extended: true }))
 app.use(express.urlencoded({ extended: true }))
-app.use(cors({ credentials: true, origin: "*" }))
+app.use(cors({ credentials: true, origin: "https://blog-app-liard-zeta.vercel.app/" }))
 app.use((req, res, next) => {
-    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Origin", "https://blog-app-liard-zeta.vercel.app/");
     res.header(
       "Access-Control-Allow-Headers",
       "Origin, X-Requested-With, Content-Type, Accept"
