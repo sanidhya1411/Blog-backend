@@ -14,6 +14,14 @@ const app = express()
 app.use(express.json({ extended: true }))
 app.use(express.urlencoded({ extended: true }))
 app.use(cors({ credentials: true, origin: "*" }))
+app.use((req, res, next) => {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.header(
+      "Access-Control-Allow-Headers",
+      "Origin, X-Requested-With, Content-Type, Accept"
+    );
+    next();
+  });
 
 app.use(upload({
     useTempFiles: true,
