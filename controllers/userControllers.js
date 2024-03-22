@@ -68,7 +68,11 @@ const loginUser = async (req, res, next) => {
         
         const { _id: id, name } = user
         const token = jwt.sign({ id, name }, process.env.JWT_SECRET, { expiresIn: '1d' })
-        res.status(200).json({token,id,name})
+
+        const expiresIn = 4 * 60 * 60
+        const expiryDate = new Date(Date.now() + expiresIn * 1000)
+
+        res.status(200).json({token,id,name,expiryDate})
     }
     catch (error) {
         return next(new HttpError("User registration failed.",422))
