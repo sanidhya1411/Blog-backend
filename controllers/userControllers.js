@@ -60,6 +60,9 @@ const loginUser = async (req, res, next) => {
         if (!user) {
             return next(new HttpError("Invalid credentials.",422))
         }
+        if (!user.verified) {
+            return next(new HttpError("Please Verify Your Mail.",422))
+        }
 
         const comparePass = await bcrypt.compare(password,user.password)
         if (!comparePass) {
