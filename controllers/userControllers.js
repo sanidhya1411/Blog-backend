@@ -294,7 +294,7 @@ const verifyMail = async (req, res, next) => {
             subject: `Verify Mail`,
             html: `<h1>Verify your mail</h1>
             <p>Click on the following link to verify your mail:</p>
-            <a href="http://localhost:3000/verified/${ptoken}">http://localhost:3000/verified/${ptoken}</a>
+            <a href="https://blog-app-liard-zeta.vercel.app/verified/${ptoken}">Click Here</a>
             <p>The link will expire in 10 minutes.</p>`,
         })
         res.status(200).json("Mail sent")
