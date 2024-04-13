@@ -13,6 +13,8 @@ router.get('/', getAuthors)
 router.post('/change-avatar',authMiddleware,changeAvatar)
 router.patch('/edit-user', authMiddleware, editUser)
 router.post('/forgotPassword',ForgotPassword)
-router.patch('/resetPassword/:token',ResetPassword)
+router.patch('/resetPassword/:token', ResetPassword)
+router.post('/verify', verifyMail)
+router.patch('/verified/:token',verifiedMail)
 
 module.exports = router
